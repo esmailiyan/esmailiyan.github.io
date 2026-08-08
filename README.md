@@ -1,11 +1,12 @@
+# MohamadMahdi Esmailiyan — Resume
 
-  # Resume Academic
+A dependency-free static resume site built with plain HTML, CSS, and JavaScript.
 
-  This is a code bundle for Resume Academic. The original project is available at https://www.figma.com/design/sTyUH4TAGqiwNm8KV4se5K/Resume-Academic.
+## Publish with GitHub Pages
 
-  ## Running the code
+1. Push this repository to GitHub.
+2. In **Settings → Pages**, choose **Deploy from a branch**.
+3. Select the branch containing these files and the **/(root)** folder.
+4. Save. GitHub Pages will serve `index.html` directly.
 
-  Run `npm i` to install the dependencies.
-
-  Run `npm run dev` to start the development server.
-  
+No build step or package installation is required.
