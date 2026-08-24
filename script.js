@@ -7,7 +7,11 @@ if(programmingTags){const bash=document.createElement('span');bash.className='ta
 const toolsTags=[...document.querySelectorAll('.skill')].find(group=>group.querySelector('h2')?.textContent.trim()==='Tools')?.querySelector('.tags');
 if(toolsTags){['n8n','Uptime Monitoring','Agentic Coding','CI/CD Pipelines'].forEach(name=>{const tag=document.createElement('span');tag.className='tag';tag.textContent=name;toolsTags.append(tag)})}
 const balangProject=[...document.querySelectorAll('.project')].find(project=>project.querySelector('h2')?.textContent.trim()==='Balang');
-if(balangProject){balangProject.querySelector('p').textContent='Co-developed an AI-powered IELTS learning platform with personalized intelligent features, helping learners practise more effectively through adaptive, AI-assisted learning experiences.'}
+if(balangProject){balangProject.querySelector('h2').textContent='Balang — IELTS Learning Platform';balangProject.querySelector('p').textContent='Co-developed an AI-powered IELTS learning platform with personalized intelligent features, helping learners practise more effectively through adaptive, AI-assisted learning experiences.'}
 const dataScienceService=[...document.querySelectorAll('.service')].find(service=>service.querySelector('h3')?.textContent.trim()==='Data Science');
 if(dataScienceService){dataScienceService.querySelector('h3').textContent='LLM';dataScienceService.querySelector('p').textContent='Building language-aware applications with large language models and natural language processing.';const icon=dataScienceService.querySelector('svg');icon.setAttribute('viewBox','0 0 24 24');icon.innerHTML='<circle cx="7" cy="7" r="2"/><circle cx="17" cy="7" r="2"/><circle cx="12" cy="17" r="2"/><path d="m8.5 8.5 2.2 6M15.5 8.5l-2.2 6M9 7h6"/>'}
 document.querySelectorAll('.nav .btn.small').forEach(button=>button.remove());
+const aboutPortrait=document.querySelector('.portrait');
+if(aboutPortrait){aboutPortrait.remove();document.querySelector('.about')?.classList.add('about--single')}
+const homeVisual=document.querySelector('.visual');
+if(homeVisual){homeVisual.innerHTML='<img class="home-profile" src="assets/images/home-profile.jpg" alt="MohamadMahdi Esmailiyan">'}
