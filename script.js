@@ -1,0 +1,10 @@
+const header=document.querySelector('.header'),menuButton=document.querySelector('[data-menu-button]'),menu=document.querySelector('[data-menu]');
+const compact=()=>header?.classList.toggle('scrolled',scrollY>12);compact();addEventListener('scroll',compact,{passive:true});
+if(menuButton&&menu){menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));menu.classList.toggle('open',!open)});menu.addEventListener('click',e=>{if(e.target.closest('a')){menuButton.setAttribute('aria-expanded','false');menu.classList.remove('open')}});addEventListener('keydown',e=>{if(e.key==='Escape'){menuButton.setAttribute('aria-expanded','false');menu.classList.remove('open');menuButton.focus()}})}
+document.querySelectorAll('[data-contact-form]').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();const note=form.querySelector('[data-form-note]');if(!form.checkValidity()){form.reportValidity();return}note.textContent='Thank you. Connect this form to your preferred email service to receive messages.'}));
+const programmingTags=document.querySelector('.skill .tags');
+if(programmingTags){const bash=document.createElement('span');bash.className='tag';bash.textContent='Bash';programmingTags.append(bash)}
+const toolsTags=[...document.querySelectorAll('.skill')].find(group=>group.querySelector('h2')?.textContent.trim()==='Tools')?.querySelector('.tags');
+if(toolsTags){['n8n','Uptime Monitoring','Agentic Coding','CI/CD Pipelines'].forEach(name=>{const tag=document.createElement('span');tag.className='tag';tag.textContent=name;toolsTags.append(tag)})}
+const balangProject=[...document.querySelectorAll('.project')].find(project=>project.querySelector('h2')?.textContent.trim()==='Balang');
+if(balangProject){balangProject.querySelector('p').textContent='Co-developed an AI-powered IELTS learning platform with personalized intelligent features, helping learners practise more effectively through adaptive, AI-assisted learning experiences.'}
