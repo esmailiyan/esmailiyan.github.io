@@ -44,3 +44,63 @@
 .resume-section .timeline-item:last-child{padding-bottom:0}.resume-section .degree{padding-top:0}.achievements>h3{margin:0 0 1rem;font-size:1rem}.featured-grid .project{min-height:220px}.contact-panel{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:1.5rem;border-radius:11px;background:var(--purple-soft)}.contact-panel h3{margin:0 0 .35rem;font-size:1.3rem}.contact-panel p{max-width:570px;margin:0;color:var(--muted);font-size:.9rem}.contact-actions{display:flex;flex:0 0 auto;align-items:center;gap:.55rem}
 @media(max-width:700px){.resume-scroll .bar,.resume-scroll .scrolled .bar{min-height:58px}.resume-scroll .nav{top:58px}.profile-cover{height:122px}.profile-hero{padding-bottom:1.4rem}.profile-content{display:block}.profile-photo{width:118px;margin-top:-62px;border-width:4px}.profile-copy{padding-top:.9rem}.profile-copy .kicker{margin-bottom:.65rem}.profile-copy h1{font-size:clamp(2rem,10vw,3rem);line-height:1.02}.profile-role{margin-top:.7rem}.profile-meta{line-height:1.5}.profile-actions{display:grid;grid-template-columns:1fr 1fr;margin-top:1.1rem}.profile-actions .profile-link{grid-column:1/-1;padding:.35rem 0}.resume-feed{gap:.7rem;padding-top:.7rem}.resume-section{scroll-margin-top:66px;padding:1.25rem;border-radius:11px}.section-head{margin-bottom:1.25rem}.section-head h2{font-size:1.4rem}.resume-copy{font-size:.92rem}.featured-grid{display:flex;gap:.8rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:1px 1px .7rem}.featured-grid .project{min-width:min(82vw,330px);min-height:215px;scroll-snap-align:start}.resume-section .timeline-item{padding-bottom:2.2rem}.resume-section .timeline-content h2{font-size:1.03rem}.resume-section .education{gap:2rem}.resume-section .skills{gap:0}.contact-panel{align-items:stretch;flex-direction:column;padding:1.15rem}.contact-actions{display:grid;grid-template-columns:1fr 1fr}.contact-actions .profile-link{grid-column:1/-1;padding:.4rem 0}.resume-scroll .footer .wrap{min-height:105px}}
 @media(max-width:420px){.profile-actions,.contact-actions{grid-template-columns:1fr}.profile-actions .profile-link,.contact-actions .profile-link{grid-column:auto}.profile-actions .btn,.contact-actions .btn{width:100%}.profile-photo{width:106px}.resume-section{padding:1.1rem}.featured-grid .project{min-width:84vw}.achievement{gap:.6rem}.achievement time{font-size:.7rem}}
+
+/* Mobile-first resume refinements: the primary audience views this page on a phone. */
+.resume-scroll{-webkit-text-size-adjust:100%;overflow-x:hidden}.resume-scroll main{overflow:hidden}
+@media(max-width:700px){
+  .resume-scroll .wrap{width:calc(100% - 24px)}
+  .profile-cover{height:104px}
+  .profile-hero{padding-bottom:18px}
+  .profile-content{padding-bottom:0}
+  .profile-photo{display:block;width:104px;height:104px;margin-top:-54px;border:4px solid #fff}
+  .profile-copy{padding-top:12px}
+  .profile-copy h1{max-width:100%;font-size:clamp(1.9rem,9.2vw,2.65rem);line-height:1.03;overflow-wrap:anywhere}
+  .profile-role{font-size:1rem;line-height:1.45}
+  .profile-meta{font-size:.8rem}
+  .profile-actions{gap:8px;margin-top:16px}
+  .profile-actions .btn{min-height:46px;padding:10px 12px;font-size:.78rem}
+  .profile-actions .profile-link{display:inline-flex;min-height:44px;align-items:center}
+  .resume-feed{gap:10px;padding:10px 0 max(42px,env(safe-area-inset-bottom))}
+  .resume-section{width:100%;padding:18px 16px;border-radius:12px}
+  .section-head{gap:10px;margin-bottom:18px}
+  .section-head .kicker{font-size:.68rem}
+  .section-head h2{font-size:1.32rem;line-height:1.2}
+  .resume-copy{font-size:.93rem;line-height:1.75}
+  .resume-section .education{grid-template-columns:1fr;gap:26px}
+  .resume-section .degree{padding-bottom:2px}
+  .resume-section .degree h2{font-size:1.35rem;line-height:1.25}
+  .coursework{gap:6px}.coursework li{padding:6px 8px;font-size:.7rem}
+  .achievement{grid-template-columns:24px minmax(0,1fr) auto;padding:15px 0}
+  .achievement .i{width:20px;height:20px}.achievement strong{font-size:.84rem}.achievement span{font-size:.72rem}.achievement time{grid-column:auto}
+  .resume-section .timeline-item{grid-template-columns:16px minmax(0,1fr);padding-bottom:28px}
+  .resume-section .timeline-date{padding-left:10px;font-size:.72rem}
+  .resume-section .timeline-content{min-width:0;padding-left:10px}
+  .resume-section .timeline-content h2{font-size:1rem;line-height:1.3}
+  .resume-section .timeline-content h3{font-size:.76rem;line-height:1.5}
+  .resume-section .timeline-content p{font-size:.84rem;line-height:1.65}
+  .courses{gap:4px 8px;font-size:.7rem}
+  .featured-grid{width:calc(100% + 16px);margin-right:-16px;overscroll-behavior-inline:contain;scroll-padding-left:1px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .featured-grid::-webkit-scrollbar{display:none}
+  .featured-grid .project{min-width:min(82vw,310px);min-height:205px;padding:18px 16px;border-radius:11px}
+  .featured-grid .project h2{font-size:1.08rem;line-height:1.3}
+  .featured-grid .project p{font-size:.82rem;line-height:1.6}
+  .project-meta{font-size:.65rem}
+  .resume-section .skills{grid-template-columns:1fr;gap:0}
+  .resume-section .skill{padding:16px 0 18px}
+  .resume-section .skill h2{font-size:.92rem}
+  .resume-section .tag{min-height:32px;padding:5px 9px;font-size:.7rem}
+  .contact-panel{gap:20px;padding:16px}
+  .contact-panel h3{font-size:1.15rem}.contact-panel p{font-size:.83rem;line-height:1.65}
+  .contact-actions{gap:8px}.contact-actions .btn{min-height:46px}.contact-actions .profile-link{display:inline-flex;min-height:44px;align-items:center}
+  .resume-scroll .footer .wrap{width:calc(100% - 24px);min-height:112px;padding-bottom:max(16px,env(safe-area-inset-bottom))}
+}
+@media(max-width:380px){
+  .resume-scroll .wrap{width:calc(100% - 18px)}
+  .profile-photo{width:94px;height:94px;margin-top:-49px}
+  .profile-copy h1{font-size:1.82rem}
+  .resume-section{padding:16px 13px}
+  .featured-grid{width:calc(100% + 13px);margin-right:-13px}
+  .featured-grid .project{min-width:84vw}
+  .achievement{grid-template-columns:22px minmax(0,1fr)}
+  .achievement time{grid-column:2}
+}
