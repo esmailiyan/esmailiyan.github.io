@@ -104,3 +104,55 @@
   .achievement{grid-template-columns:22px minmax(0,1fr)}
   .achievement time{grid-column:2}
 }
+
+/* Robust phone layout: no overlapping columns or horizontally clipped content. */
+@media(max-width:760px){
+  .resume-scroll,.resume-scroll body{width:100%;max-width:100%;overflow-x:hidden}
+  .resume-scroll *{min-width:0}
+  .resume-scroll p,.resume-scroll h1,.resume-scroll h2,.resume-scroll h3,.resume-scroll a,.resume-scroll span,.resume-scroll li{max-width:100%;overflow-wrap:anywhere;word-break:normal}
+  .resume-scroll .wrap{width:calc(100% - 24px);max-width:none}
+  .profile-content,.profile-copy,.resume-feed,.resume-section{width:100%;max-width:100%}
+  .profile-content{display:block}
+  .profile-copy h1{white-space:normal}
+  .profile-actions{display:grid;grid-template-columns:1fr;align-items:stretch}
+  .profile-actions .btn,.profile-actions .profile-link{grid-column:auto;width:100%;justify-content:center;text-align:center}
+
+  .resume-section .education,.resume-section .skills,.resume-section .projects{display:grid;width:100%;grid-template-columns:minmax(0,1fr);gap:12px}
+  .resume-section .degree,.resume-section .achievements,.resume-section .skill{width:100%;max-width:100%}
+  .resume-section .coursework,.resume-section .tags{max-width:100%}
+
+  .resume-section .timeline{width:100%}
+  .resume-section .timeline-item{display:block;width:100%;padding:0 0 24px 14px;border-left:2px solid var(--purple-soft)}
+  .resume-section .timeline-item:last-child{padding-bottom:0}
+  .resume-section .track{display:none}
+  .resume-section .timeline-date{display:block;width:100%;margin:0 0 6px;padding:0;color:var(--muted);font-size:.72rem;line-height:1.45}
+  .resume-section .timeline-content{display:block;width:100%;padding:0}
+  .resume-section .timeline-content h2,.resume-section .timeline-content h3,.resume-section .timeline-content p{width:100%;max-width:100%}
+  .resume-section .courses{display:block;width:100%}
+  .resume-section .courses li{display:inline}
+  .resume-section .courses li::after{margin:0 5px;content:"·"}
+  .resume-section .courses li:last-child::after{content:""}
+
+  .resume-section .featured-grid{display:grid;width:100%;margin:0;padding:0;overflow:visible;grid-template-columns:minmax(0,1fr);gap:12px;scroll-snap-type:none}
+  .resume-section .featured-grid .project{width:100%;min-width:0;max-width:100%;min-height:0;padding:18px 16px;overflow:hidden;scroll-snap-align:none}
+  .resume-section .project-meta{display:flex;align-items:flex-start;gap:10px}
+  .resume-section .project-meta span:first-child{flex:1}
+  .resume-section .project h2,.resume-section .project p{width:100%;max-width:100%}
+  .resume-section .project .tags{margin-top:18px;padding-top:0}
+
+  .resume-section .achievement{display:grid;width:100%;grid-template-columns:22px minmax(0,1fr);gap:8px}
+  .resume-section .achievement time{grid-column:2;white-space:normal}
+  .resume-section .achievement div{min-width:0}
+
+  .contact-panel{width:100%;max-width:100%}
+  .contact-actions{display:grid;width:100%;grid-template-columns:1fr}
+  .contact-actions .btn,.contact-actions .profile-link{grid-column:auto;width:100%;justify-content:center;text-align:center}
+  .resume-scroll .footer .wrap{align-items:stretch}
+  .resume-scroll .footer .links{width:100%;justify-content:space-between}
+}
+@media(max-width:360px){
+  .resume-scroll .wrap{width:calc(100% - 16px)}
+  .resume-section{padding:15px 12px}
+  .profile-actions .btn,.contact-actions .btn{font-size:.74rem}
+  .resume-section .project-meta{font-size:.6rem}
+}
