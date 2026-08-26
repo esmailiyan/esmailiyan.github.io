@@ -15,3 +15,22 @@ const aboutPortrait=document.querySelector('.portrait');
 if(aboutPortrait){aboutPortrait.remove();document.querySelector('.about')?.classList.add('about--single')}
 const homeVisual=document.querySelector('.visual');
 if(homeVisual){homeVisual.innerHTML='<img class="home-profile" src="assets/images/home-profile.jpg" alt="MohamadMahdi Esmailiyan">'}
+
+const sectionLinks=[...document.querySelectorAll('.anchor-nav a[href^="#"]')];
+if(sectionLinks.length&&'IntersectionObserver' in window){
+  const sections=sectionLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const setActive=id=>sectionLinks.forEach(link=>link.toggleAttribute('aria-current',link.getAttribute('href')===`#${id}`));
+  const sectionObserver=new IntersectionObserver(entries=>{
+    const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+    if(visible)setActive(visible.target.id);
+  },{rootMargin:'-20% 0px -65%',threshold:[0,.2,.5]});
+  sections.forEach(section=>sectionObserver.observe(section));
+}
+
+const resumeFeed=document.querySelector('.resume-feed');
+if(resumeFeed){
+  ['summary','education','experience','projects','skills','contact'].forEach(id=>{
+    const section=document.getElementById(id);
+    if(section)resumeFeed.append(section);
+  });
+}
