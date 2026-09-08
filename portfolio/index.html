@@ -1,60 +1,34 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f4f1ea" />
-    <meta name="description" content="MohamadMahdi Esmailiyan — Computer Science student, Data Scientist, and AI Engineer." />
-    <title>MohamadMahdi Esmailiyan — Academic Profile</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="MohamadMahdi Esmailiyan — Data Scientist and AI Engineer." />
+    <meta name="theme-color" content="#0a0a0f" />
+    <title>MohamadMahdi Esmailiyan — Data Scientist &amp; AI Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="card-styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="portfolio.css" />
   </head>
   <body>
-    <main class="profile-card">
-      <header class="masthead">
-        <a class="mark" href="#top" aria-label="MohamadMahdi Esmailiyan home">ME<span>.</span></a>
-        <p>Academic profile · 2026</p>
-        <a class="resume-link" href="about.html">Full résumé <span aria-hidden="true">↗</span></a>
-      </header>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <nav aria-label="Primary navigation"><div class="container"><a class="logo" href="#home">MohamadMahdi</a><button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button><div class="nav-links" id="nav-links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact" class="nav-cta">Contact</a></div></div></nav>
 
-      <section class="identity" id="top" aria-labelledby="name">
-        <div class="portrait-wrap"><img src="assets/images/home-profile.jpg" alt="Portrait of MohamadMahdi Esmailiyan" /></div>
-        <div class="identity-copy">
-          <p class="eyebrow">Computer Science · University of Tehran</p>
-          <h1 id="name">MohamadMahdi<br /><em>Esmailiyan</em></h1>
-          <p class="role">Data Scientist &amp; AI Engineer</p>
-          <p class="introduction">I work at the intersection of data, machine learning, and thoughtful software systems—with a focus on turning complex questions into useful, reliable tools.</p>
-        </div>
-      </section>
+    <main>
+      <section class="hero" id="home"><div class="container"><div class="hero-content"><p class="hero-badge"><span class="dot"></span> Open to research and AI opportunities</p><h1>Hi, I’m <span>MohamadMahdi.</span></h1><p class="subtitle">Computer Science undergraduate, Data Scientist, and AI Engineer focused on machine learning, data analysis, optimisation, and useful intelligent systems.</p><div class="hero-buttons"><a class="btn btn-primary" href="#projects">View projects <span>↓</span></a><a class="btn btn-secondary" href="#contact">Get in touch</a></div></div></div></section>
 
-      <div class="rule"></div>
+      <section id="about"><div class="container"><p class="section-label">About me</p><h2 class="section-title">Building reliable systems from data.</h2><div class="about-grid"><div class="about-text"><p>I’m a Computer Science undergraduate at the University of Tehran. I enjoy combining mathematical thinking with practical software engineering to solve real-world problems.</p><p>My work spans predictive modelling, data analysis, algorithmic problem-solving, and AI-assisted products. I’m especially drawn to making complex systems clearer, more useful, and more reliable.</p><p>Outside of building, I teach and support undergraduate computer science and mathematics courses.</p></div><div class="stats-grid"><article class="stat-card"><strong>19.2</strong><span>GPA / 20</span></article><article class="stat-card"><strong>4</strong><span>Competition honours</span></article><article class="stat-card"><strong>5+</strong><span>Core ML projects</span></article><article class="stat-card"><strong>2023</strong><span>University of Tehran</span></article></div></div></div></section>
 
-      <section class="details" aria-label="Profile details">
-        <div class="detail-block">
-          <p class="section-label">Focus</p>
-          <ul class="research-list"><li>Machine learning</li><li>Large language models</li><li>Data analysis &amp; optimisation</li></ul>
-        </div>
-        <div class="detail-block distinction">
-          <p class="section-label">Current work</p>
-          <p>Building data-informed products and AI systems; teaching and learning within the University of Tehran community.</p>
-          <span>Available for research &amp; collaboration</span>
-        </div>
-      </section>
+      <section id="skills"><div class="container"><p class="section-label">Skills</p><h2 class="section-title">Technologies I work with.</h2><div class="skills-grid"><article class="skill-category"><h3><i>⌘</i> Programming</h3><div class="skill-tags"><span>Python</span><span>JavaScript</span><span>C++</span><span>C#</span><span>SQL</span><span>Bash</span></div></article><article class="skill-category"><h3><i>◌</i> Data &amp; Machine Learning</h3><div class="skill-tags"><span>NumPy</span><span>Pandas</span><span>Scikit-learn</span><span>Regression</span><span>Classification</span><span>EDA</span></div></article><article class="skill-category"><h3><i>✦</i> AI Systems</h3><div class="skill-tags"><span>LLMs</span><span>LangChain</span><span>Optimisation</span><span>Statistics</span><span>Model Evaluation</span></div></article><article class="skill-category"><h3><i>⚡</i> Engineering Tools</h3><div class="skill-tags"><span>Git</span><span>Docker</span><span>Linux</span><span>Jupyter</span><span>CI/CD</span><span>n8n</span></div></article></div></div></section>
 
-      <section class="links" aria-labelledby="connect-title">
-        <div class="links-heading"><p class="section-label" id="connect-title">Connect</p><p>Selected ways to get in touch</p></div>
-        <div class="link-list">
-          <a class="primary-link" href="about.html"><span>01</span><strong>View full résumé</strong><b aria-hidden="true">↗</b></a>
-          <a href="mailto:esmailiyan.mahdi@gmail.com"><span>02</span><strong>Email</strong><small>esmailiyan.mahdi@gmail.com</small><b aria-hidden="true">↗</b></a>
-          <a href="https://www.linkedin.com/in/mohamadmahdi-esmailiyan" target="_blank" rel="noreferrer"><span>03</span><strong>LinkedIn</strong><small>Professional profile</small><b aria-hidden="true">↗</b></a>
-          <a href="https://github.com/esmailiyan" target="_blank" rel="noreferrer"><span>04</span><strong>GitHub</strong><small>Selected code &amp; experiments</small><b aria-hidden="true">↗</b></a>
-        </div>
-      </section>
+      <section id="experience"><div class="container"><p class="section-label">Experience</p><h2 class="section-title">Where I’ve contributed.</h2><div class="timeline"><article><time>May 2025 — Jan 2026</time><h3>Software Engineer</h3><p class="company">Tejarat Hooshmand Sharif (THS)</p><p>Developed Python software components, AI-driven solutions, and self-hosted infrastructure while working across LLM and DevOps workflows.</p></article><article><time>Sep 2024 — Jul 2026</time><h3>Teaching Assistant</h3><p class="company">University of Tehran</p><p>Led problem-solving sessions and technical feedback for Probability, Data Structures, Programming, Calculus, and Combinatorics.</p></article><article><time>Apr 2024 — Sep 2024</time><h3>Educational Content Designer</h3><p class="company">Juniora</p><p>Designed educational systems and automated programming-assessment solutions.</p></article></div></div></section>
 
-      <footer><span>Tehran, Iran</span><span>© <span id="year">2026</span> MohamadMahdi Esmailiyan</span></footer>
+      <section id="projects"><div class="container"><p class="section-label">Projects</p><h2 class="section-title">Things I’ve built.</h2><div class="projects-grid"><article class="project-card"><div class="project-visual visual-cancer">ML</div><div class="project-body"><h3>Breast Cancer Detection</h3><p>Machine-learning models for cancer diagnosis using clinical data; Silver Medal in ISIC 2024.</p><div class="project-tags"><span>Python</span><span>Pandas</span><span>Scikit-learn</span></div></div></article><article class="project-card"><div class="project-visual visual-balang">AI</div><div class="project-body"><h3>Balang — IELTS Platform</h3><p>Co-developed an AI-powered IELTS learning platform with personalised intelligent features.</p><div class="project-tags"><span>AI</span><span>LLM</span><span>DevOps</span></div><a href="https://www.balangapp.com/" target="_blank" rel="noreferrer">Visit project ↗</a></div></article><article class="project-card"><div class="project-visual visual-housing">DS</div><div class="project-body"><h3>Housing Price Prediction</h3><p>Built and evaluated regression models for Boston housing price prediction.</p><div class="project-tags"><span>Python</span><span>Regression</span><span>Scikit-learn</span></div><a href="https://github.com/esmailiyan/Housing-prices" target="_blank" rel="noreferrer">View on GitHub ↗</a></div></article><article class="project-card"><div class="project-visual visual-diabetes">ML</div><div class="project-body"><h3>Diabetes Prediction</h3><p>Classification models to predict diabetes from health-related data.</p><div class="project-tags"><span>Python</span><span>Classification</span><span>Pandas</span></div><a href="https://github.com/esmailiyan/Diabetes-Prediction" target="_blank" rel="noreferrer">View on GitHub ↗</a></div></article></div></div></section>
+
+      <section id="contact"><div class="container contact-content"><p class="section-label">Contact</p><h2 class="section-title">Let’s work together.</h2><p>I’m open to research collaborations, meaningful AI projects, and new opportunities.</p><div class="contact-links"><a href="mailto:esmailiyan.mahdi@gmail.com">Email</a><a href="https://www.linkedin.com/in/mohamadmahdi-esmailiyan" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/esmailiyan" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.kaggle.com/esmailiyan" target="_blank" rel="noreferrer">Kaggle</a></div></div></section>
     </main>
-    <script src="card-script.js"></script>
+    <footer><div class="container">© <span id="year"></span> MohamadMahdi Esmailiyan · Built for curious work.</div></footer>
+    <script src="portfolio.js"></script>
   </body>
 </html>
