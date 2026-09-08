@@ -1,18 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="MohamadMahdi Esmailiyan — Data Scientist and AI Engineer." />
-    <meta name="theme-color" content="#08070d" />
-    <title>MohamadMahdi Esmailiyan — Digital Business Card</title>
-    <style>
-      html, body, iframe { width:100%; height:100%; margin:0; border:0; }
-      body { overflow:hidden; background:#0e0d13; }
-      iframe { display:block; }
-    </style>
+    <meta name="theme-color" content="#f7f8fb" />
+    <title>MohamadMahdi Esmailiyan — Academic Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500&amp;family=Vazirmatn:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <iframe src="Card/index.html" title="MohamadMahdi Esmailiyan digital business card"></iframe>
+    <main class="page-shell">
+      <section class="profile-card" aria-labelledby="profile-name">
+        <header class="card-header">
+          <a class="monogram" href="#top" aria-label="Home">MM<span>.</span></a>
+          <button class="language-toggle" type="button" aria-label="Switch to Persian" aria-pressed="false"><i data-lucide="languages" aria-hidden="true"></i><span>فارسی</span></button>
+        </header>
+        <section class="profile" id="top">
+          <div class="avatar"><img id="profile-image" src="card/assets/images/home-profile.jpg" alt="MohamadMahdi Esmailiyan" /></div>
+          <p class="eyebrow" data-i18n="institution"></p><h1 id="profile-name" data-i18n="name"></h1><p class="title" data-i18n="title"></p><p class="bio" data-i18n="bio"></p>
+        </section>
+        <section class="links-section" aria-labelledby="links-title">
+          <div class="section-heading"><span></span><h2 id="links-title" data-i18n="connect"></h2><span></span></div>
+          <nav class="quick-links" id="quick-links" aria-label="Contact links"></nav>
+        </section>
+        <section class="location" aria-label="Location"><div class="location-icon"><i data-lucide="map-pin" aria-hidden="true"></i></div><div><p class="location-label" data-i18n="locationLabel"></p><p id="location-text"></p></div></section>
+        <footer><span data-i18n="footer"></span><a href="card/" data-i18n="resume"></a></footer>
+      </section>
+    </main>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script><script src="script.js"></script>
   </body>
 </html>

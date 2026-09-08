@@ -2,4 +2,4 @@
 
 A framework-free, multi-page portfolio made with HTML, CSS, and small vanilla JavaScript.
 
-Open `index.html` in a browser, or serve this folder with any static file server. To activate **Download CV**, add the PDF at `assets/resume/MohamadMahdi-Esmailiyan-CV.pdf`.
+The portfolio is served from `/card/`. Open `card/index.html` in a browser, or serve this folder with any static file server and visit `/card/`. The root `index.html` redirects there. To activate **Download CV**, add the PDF at `card/assets/resume/MohamadMahdi-Esmailiyan-CV.pdf`.

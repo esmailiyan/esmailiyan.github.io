@@ -1,36 +1,27 @@
-const header=document.querySelector('.header'),menuButton=document.querySelector('[data-menu-button]'),menu=document.querySelector('[data-menu]');
-const compact=()=>header?.classList.toggle('scrolled',scrollY>12);compact();addEventListener('scroll',compact,{passive:true});
-if(menuButton&&menu){menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));menu.classList.toggle('open',!open)});menu.addEventListener('click',e=>{if(e.target.closest('a')){menuButton.setAttribute('aria-expanded','false');menu.classList.remove('open')}});addEventListener('keydown',e=>{if(e.key==='Escape'){menuButton.setAttribute('aria-expanded','false');menu.classList.remove('open');menuButton.focus()}})}
-document.querySelectorAll('[data-contact-form]').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();const note=form.querySelector('[data-form-note]');if(!form.checkValidity()){form.reportValidity();return}note.textContent='Thank you. Connect this form to your preferred email service to receive messages.'}));
-const programmingTags=document.querySelector('.skill .tags');
-if(programmingTags){const bash=document.createElement('span');bash.className='tag';bash.textContent='Bash';programmingTags.append(bash)}
-const toolsTags=[...document.querySelectorAll('.skill')].find(group=>group.querySelector('h2')?.textContent.trim()==='Tools')?.querySelector('.tags');
-if(toolsTags){['n8n','Uptime Monitoring','Agentic Coding','CI/CD Pipelines'].forEach(name=>{const tag=document.createElement('span');tag.className='tag';tag.textContent=name;toolsTags.append(tag)})}
-const balangProject=[...document.querySelectorAll('.project')].find(project=>project.querySelector('h2')?.textContent.trim()==='Balang');
-if(balangProject){balangProject.querySelector('h2').textContent='Balang — IELTS Learning Platform';balangProject.querySelector('p').textContent='Co-developed an AI-powered IELTS learning platform with personalized intelligent features, helping learners practise more effectively through adaptive, AI-assisted learning experiences.'}
-const dataScienceService=[...document.querySelectorAll('.service')].find(service=>service.querySelector('h3')?.textContent.trim()==='Data Science');
-if(dataScienceService){dataScienceService.querySelector('h3').textContent='LLM';dataScienceService.querySelector('p').textContent='Building language-aware applications with large language models and natural language processing.';const icon=dataScienceService.querySelector('svg');icon.setAttribute('viewBox','0 0 24 24');icon.innerHTML='<circle cx="7" cy="7" r="2"/><circle cx="17" cy="7" r="2"/><circle cx="12" cy="17" r="2"/><path d="m8.5 8.5 2.2 6M15.5 8.5l-2.2 6M9 7h6"/>'}
-document.querySelectorAll('.nav .btn.small').forEach(button=>button.remove());
-const aboutPortrait=document.querySelector('.portrait');
-if(aboutPortrait){aboutPortrait.remove();document.querySelector('.about')?.classList.add('about--single')}
-const homeVisual=document.querySelector('.visual');
-if(homeVisual){homeVisual.innerHTML='<img class="home-profile" src="assets/images/home-profile.jpg" alt="MohamadMahdi Esmailiyan">'}
+/* Edit this object to update the page content, links, image, or translations. */
+const profile = {
+  image: 'card/assets/images/home-profile.jpg', // Replace with your preferred image path.
+  linkedin: 'https://www.linkedin.com/in/mohamadmahdi-esmailiyan', github: 'https://github.com/esmailiyan',
+  telegram: 'https://t.me/MohamadMahdiE', // Add your personal Telegram URL here, e.g. https://t.me/username.
+  email: 'esmailiyan.mahdi@gmail.com', location: 'Tehran, Iran',
+  translations: {
+    en: { institution: 'University of Tehran · Computer Science', name: 'MohamadMahdi Esmailiyan', title: 'Data Scientist · AI Engineer', bio: 'Computer Science undergraduate focused on machine learning, data analysis, and dependable AI systems. I enjoy applying mathematical thinking to useful real-world tools.', connect: 'Connect', locationLabel: 'Based in', location: 'Tehran, Iran', footer: 'Personal academic profile', resume: 'Full résumé →', links: { linkedin: ['LinkedIn', 'Professional profile'], github: ['GitHub', 'Code & experiments'], telegram: ['Telegram', 'Add your handle in script.js'], email: ['Email', 'Start a conversation'] } },
+    fa: { institution: 'دانشگاه تهران · علوم کامپیوتر', name: 'محمدمهدی اسماعیلیان', title: 'دانشمند داده · مهندس هوش مصنوعی', bio: 'دانشجوی علوم کامپیوتر با تمرکز بر یادگیری ماشین، تحلیل داده و سامانه‌های هوش مصنوعی قابل‌اعتماد. علاقه‌مند به تبدیل مسائل پیچیده به ابزارهای کاربردی و دقیق.', connect: 'راه‌های ارتباطی', locationLabel: 'محل فعالیت', location: 'تهران، ایران', footer: 'پروفایل شخصی و آکادمیک', resume: 'رزومهٔ کامل ←', links: { linkedin: ['لینکدین', 'پروفایل حرفه‌ای'], github: ['گیت‌هاب', 'کدها و پروژه‌ها'], telegram: ['تلگرام', 'شناسه را در script.js اضافه کنید'], email: ['ایمیل', 'شروع یک گفت‌وگو'] } }
+  }
+};
 
-const sectionLinks=[...document.querySelectorAll('.anchor-nav a[href^="#"]')];
-if(sectionLinks.length&&'IntersectionObserver' in window){
-  const sections=sectionLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
-  const setActive=id=>sectionLinks.forEach(link=>link.toggleAttribute('aria-current',link.getAttribute('href')===`#${id}`));
-  const sectionObserver=new IntersectionObserver(entries=>{
-    const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
-    if(visible)setActive(visible.target.id);
-  },{rootMargin:'-20% 0px -65%',threshold:[0,.2,.5]});
-  sections.forEach(section=>sectionObserver.observe(section));
+const linkDefinitions = [['linkedin', 'linkedin', '#edf4f8', '#6d93b2'], ['github', 'github', '#f0f1f4', '#606b78'], ['telegram', 'send', '#eef2fb', '#788fc1'], ['email', 'mail', '#f1f6f1', '#7fa58d']];
+let language = localStorage.getItem('profile-language') || 'en';
+function render() {
+  const copy = profile.translations[language], isPersian = language === 'fa';
+  document.documentElement.lang = isPersian ? 'fa' : 'en'; document.documentElement.dir = isPersian ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i18n]').forEach((element) => { element.textContent = copy[element.dataset.i18n]; });
+  document.getElementById('profile-image').src = profile.image; document.getElementById('location-text').textContent = copy.location;
+  const toggle = document.querySelector('.language-toggle'); toggle.querySelector('span').textContent = isPersian ? 'EN' : 'فارسی'; toggle.setAttribute('aria-label', isPersian ? 'Switch to English' : 'تغییر زبان به فارسی'); toggle.setAttribute('aria-pressed', String(isPersian));
+  document.getElementById('quick-links').innerHTML = linkDefinitions.map(([key, icon, tint, color]) => {
+    const [label, note] = copy.links[key], url = key === 'email' ? `mailto:${profile.email}` : profile[key], unavailable = !url;
+    return `<a class="quick-link${unavailable ? ' is-unavailable' : ''}" ${unavailable ? 'aria-disabled="true"' : `href="${url}" target="_blank" rel="noreferrer"`} style="--link-tint:${tint};--link-color:${color}"><span class="icon-wrap"><i data-lucide="${icon}"></i></span><span class="link-copy"><strong>${label}</strong><small>${note}</small></span><span class="arrow" aria-hidden="true">↗</span></a>`;
+  }).join(''); lucide.createIcons();
 }
-
-const resumeFeed=document.querySelector('.resume-feed');
-if(resumeFeed){
-  ['summary','education','experience','projects','skills','contact'].forEach(id=>{
-    const section=document.getElementById(id);
-    if(section)resumeFeed.append(section);
-  });
-}
+document.querySelector('.language-toggle').addEventListener('click', () => { language = language === 'en' ? 'fa' : 'en'; localStorage.setItem('profile-language', language); render(); });
+render();
