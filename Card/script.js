@@ -1,36 +1,39 @@
-const header=document.querySelector('.header'),menuButton=document.querySelector('[data-menu-button]'),menu=document.querySelector('[data-menu]');
-const compact=()=>header?.classList.toggle('scrolled',scrollY>12);compact();addEventListener('scroll',compact,{passive:true});
-if(menuButton&&menu){menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));menu.classList.toggle('open',!open)});menu.addEventListener('click',e=>{if(e.target.closest('a')){menuButton.setAttribute('aria-expanded','false');menu.classList.remove('open')}});addEventListener('keydown',e=>{if(e.key==='Escape'){menuButton.setAttribute('aria-expanded','false');menu.classList.remove('open');menuButton.focus()}})}
-document.querySelectorAll('[data-contact-form]').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();const note=form.querySelector('[data-form-note]');if(!form.checkValidity()){form.reportValidity();return}note.textContent='Thank you. Connect this form to your preferred email service to receive messages.'}));
-const programmingTags=document.querySelector('.skill .tags');
-if(programmingTags){const bash=document.createElement('span');bash.className='tag';bash.textContent='Bash';programmingTags.append(bash)}
-const toolsTags=[...document.querySelectorAll('.skill')].find(group=>group.querySelector('h2')?.textContent.trim()==='Tools')?.querySelector('.tags');
-if(toolsTags){['n8n','Uptime Monitoring','Agentic Coding','CI/CD Pipelines'].forEach(name=>{const tag=document.createElement('span');tag.className='tag';tag.textContent=name;toolsTags.append(tag)})}
-const balangProject=[...document.querySelectorAll('.project')].find(project=>project.querySelector('h2')?.textContent.trim()==='Balang');
-if(balangProject){balangProject.querySelector('h2').textContent='Balang — IELTS Learning Platform';balangProject.querySelector('p').textContent='Co-developed an AI-powered IELTS learning platform with personalized intelligent features, helping learners practise more effectively through adaptive, AI-assisted learning experiences.'}
-const dataScienceService=[...document.querySelectorAll('.service')].find(service=>service.querySelector('h3')?.textContent.trim()==='Data Science');
-if(dataScienceService){dataScienceService.querySelector('h3').textContent='LLM';dataScienceService.querySelector('p').textContent='Building language-aware applications with large language models and natural language processing.';const icon=dataScienceService.querySelector('svg');icon.setAttribute('viewBox','0 0 24 24');icon.innerHTML='<circle cx="7" cy="7" r="2"/><circle cx="17" cy="7" r="2"/><circle cx="12" cy="17" r="2"/><path d="m8.5 8.5 2.2 6M15.5 8.5l-2.2 6M9 7h6"/>'}
-document.querySelectorAll('.nav .btn.small').forEach(button=>button.remove());
-const aboutPortrait=document.querySelector('.portrait');
-if(aboutPortrait){aboutPortrait.remove();document.querySelector('.about')?.classList.add('about--single')}
-const homeVisual=document.querySelector('.visual');
-if(homeVisual){homeVisual.innerHTML='<img class="home-profile" src="assets/images/home-profile.jpg" alt="MohamadMahdi Esmailiyan">'}
+const profile = {
+  links: {
+    linkedin: 'https://www.linkedin.com/in/mohamadmahdi-esmailiyan', github: 'https://github.com/esmailiyan',
+    kaggle: 'https://www.kaggle.com/esmailiyan', telegram: 'https://t.me/MohamadMahdiE', email: 'mailto:esmailiyan.mahdi@gmail.com'
+  },
+  translations: {
+    en: { institution: 'University of Tehran · Computer Science', institutionLabel: 'Academic affiliation', name: 'MohamadMahdi Esmailiyan', interestsLabel: 'Current interests', title: 'Data Science · Machine Learning · Optimization', bio: 'Computer Science undergraduate focused on machine learning, data analysis, and explainable AI systems. I enjoy applying mathematical thinking to useful real-world tools.', locationLabel: 'Location', location: 'Tehran, Iran', swipe: 'Swipe to connect', connect: 'Connect', return: 'Return to profile', links: { linkedin: ['LinkedIn', 'Professional profile'], github: ['GitHub', 'Code & experiments'], kaggle: ['Kaggle', 'Data science notebooks'], telegram: ['Telegram', 'Personal account'], email: ['Email', 'Start a conversation'] } },
+    fa: { institution: 'دانشگاه تهران · علوم کامپیوتر', institutionLabel: 'دانشگاه', name: 'محمدمهدی اسماعیلیان', interestsLabel: 'علایق حرفه‌ای', title: 'علم داده · یادگیری ماشین · بهینه‌سازی', bio: 'دانشجوی علوم کامپیوتر با تمرکز بر یادگیری ماشین، تحلیل داده و سامانه‌های هوش مصنوعی شفاف. علاقه‌مند به تبدیل مسائل پیچیده به ابزارهای کاربردی و دقیق.', locationLabel: 'موقعیت', location: 'تهران، ایران', swipe: 'برای ارتباط، ورق بزنید', connect: 'ارتباط', return: 'بازگشت به پروفایل', links: { linkedin: ['لینکدین', 'پروفایل حرفه‌ای'], github: ['گیت‌هاب', 'کدها و پروژه‌ها'], kaggle: ['کگل', 'نوت‌بوک‌های علم داده'], telegram: ['تلگرام', 'حساب شخصی'], email: ['ایمیل', 'شروع یک گفت‌وگو'] } }
+  }
+};
 
-const sectionLinks=[...document.querySelectorAll('.anchor-nav a[href^="#"]')];
-if(sectionLinks.length&&'IntersectionObserver' in window){
-  const sections=sectionLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
-  const setActive=id=>sectionLinks.forEach(link=>link.toggleAttribute('aria-current',link.getAttribute('href')===`#${id}`));
-  const sectionObserver=new IntersectionObserver(entries=>{
-    const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
-    if(visible)setActive(visible.target.id);
-  },{rootMargin:'-20% 0px -65%',threshold:[0,.2,.5]});
-  sections.forEach(section=>sectionObserver.observe(section));
+const definitions = [['linkedin', 'linkedin', '#dcecf7', '#5790b8'], ['github', 'github', '#e6eaf0', '#637489'], ['kaggle', 'chart-no-axes-combined', '#e5e8fb', '#7789c6'], ['telegram', 'send', '#e1e9fc', '#7189c5'], ['email', 'mail', '#e0f1e6', '#70a688']];
+const card = document.querySelector('.business-card');
+let language = localStorage.getItem('test-card-language') || 'en';
+let startX = 0;
+
+function flip() { const flipped = card.classList.toggle('is-flipped'); card.setAttribute('aria-pressed', flipped); }
+function render() {
+  const text = profile.translations[language], rtl = language === 'fa';
+  document.documentElement.lang = rtl ? 'fa' : 'en'; document.documentElement.dir = rtl ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i18n]').forEach((node) => { node.textContent = text[node.dataset.i18n]; });
+  const toggle = document.querySelector('.language-toggle'); toggle.querySelector('span').textContent = rtl ? 'EN' : 'فارسی'; toggle.setAttribute('aria-pressed', rtl);
+  document.getElementById('link-list').innerHTML = definitions.map(([key, icon, tint, color]) => { const [label, note] = text.links[key]; return `<a href="${profile.links[key]}" target="_blank" rel="noreferrer"><span class="link-icon" style="--tint:${tint};--color:${color}"><i data-lucide="${icon}"></i></span><span class="link-copy"><strong>${label}</strong><small>${note}</small></span><span class="link-arrow"><i data-lucide="arrow-up-right"></i></span></a>`; }).join('');
+  lucide.createIcons();
 }
 
-const resumeFeed=document.querySelector('.resume-feed');
-if(resumeFeed){
-  ['summary','education','experience','projects','skills','contact'].forEach(id=>{
-    const section=document.getElementById(id);
-    if(section)resumeFeed.append(section);
-  });
-}
+card.addEventListener('click', (event) => { if (!event.target.closest('a')) flip(); });
+card.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); flip(); } });
+card.addEventListener('pointerdown', (event) => { startX = event.clientX; card.setPointerCapture(event.pointerId); card.classList.add('is-dragging'); });
+card.addEventListener('pointermove', (event) => {
+  if (!card.classList.contains('is-dragging')) return;
+  const distance = Math.max(-120, Math.min(120, event.clientX - startX));
+  const baseAngle = card.classList.contains('is-flipped') ? 180 : 0;
+  card.style.transform = `rotateY(${baseAngle + (distance / 120) * 92}deg)`;
+});
+card.addEventListener('pointerup', (event) => { const distance = event.clientX - startX; card.classList.remove('is-dragging'); card.style.removeProperty('transform'); if (Math.abs(distance) > 50) flip(); });
+card.addEventListener('pointercancel', () => { card.classList.remove('is-dragging'); card.style.removeProperty('transform'); });
+document.querySelector('.language-toggle').addEventListener('click', () => { language = language === 'en' ? 'fa' : 'en'; localStorage.setItem('test-card-language', language); render(); });
+render();
