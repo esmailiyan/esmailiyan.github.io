@@ -1,6 +1,5 @@
 /* Edit this object to update the page content, links, image, or translations. */
 const profile = {
-  image: 'card/assets/images/home-profile.jpg', // Replace with your preferred image path.
   linkedin: 'https://www.linkedin.com/in/mohamadmahdi-esmailiyan', github: 'https://github.com/esmailiyan',
   telegram: 'https://t.me/MohamadMahdiE', // Add your personal Telegram URL here, e.g. https://t.me/username.
   email: 'esmailiyan.mahdi@gmail.com', location: 'Tehran, Iran',
@@ -16,7 +15,7 @@ function render() {
   const copy = profile.translations[language], isPersian = language === 'fa';
   document.documentElement.lang = isPersian ? 'fa' : 'en'; document.documentElement.dir = isPersian ? 'rtl' : 'ltr';
   document.querySelectorAll('[data-i18n]').forEach((element) => { element.textContent = copy[element.dataset.i18n]; });
-  document.getElementById('profile-image').src = profile.image; document.getElementById('location-text').textContent = copy.location;
+  document.getElementById('location-text').textContent = copy.location;
   const toggle = document.querySelector('.language-toggle'); toggle.querySelector('span').textContent = isPersian ? 'EN' : 'فارسی'; toggle.setAttribute('aria-label', isPersian ? 'Switch to English' : 'تغییر زبان به فارسی'); toggle.setAttribute('aria-pressed', String(isPersian));
   document.getElementById('quick-links').innerHTML = linkDefinitions.map(([key, icon, tint, color]) => {
     const [label, note] = copy.links[key], url = key === 'email' ? `mailto:${profile.email}` : profile[key], unavailable = !url;
