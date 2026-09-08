@@ -214,6 +214,17 @@ html[dir="rtl"] .location-card .location-value {
   letter-spacing: 0;
 }
 
+html[dir="rtl"] .link-list .link-copy {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
+html[dir="rtl"] .link-list .link-copy strong,
+html[dir="rtl"] .link-list .link-copy small {
+  white-space: nowrap;
+}
+
 .test-avatar img {
   display: block;
   width: 100%;

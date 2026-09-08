@@ -20,7 +20,7 @@ function render() {
   document.documentElement.lang = rtl ? 'fa' : 'en'; document.documentElement.dir = rtl ? 'rtl' : 'ltr';
   document.querySelectorAll('[data-i18n]').forEach((node) => { node.textContent = text[node.dataset.i18n]; });
   const toggle = document.querySelector('.language-toggle'); toggle.querySelector('span').textContent = rtl ? 'EN' : 'فارسی'; toggle.setAttribute('aria-pressed', rtl);
-  document.getElementById('link-list').innerHTML = definitions.map(([key, icon, tint, color]) => { const [label, note] = text.links[key]; return `<a href="${profile.links[key]}" target="_blank" rel="noreferrer"><span class="link-icon" style="--tint:${tint};--color:${color}"><i data-lucide="${icon}"></i></span><span><strong>${label}</strong><small>${note}</small></span><span class="link-arrow"><i data-lucide="arrow-up-right"></i></span></a>`; }).join('');
+  document.getElementById('link-list').innerHTML = definitions.map(([key, icon, tint, color]) => { const [label, note] = text.links[key]; return `<a href="${profile.links[key]}" target="_blank" rel="noreferrer"><span class="link-icon" style="--tint:${tint};--color:${color}"><i data-lucide="${icon}"></i></span><span class="link-copy"><strong>${label}</strong><small>${note}</small></span><span class="link-arrow"><i data-lucide="arrow-up-right"></i></span></a>`; }).join('');
   lucide.createIcons();
 }
 
