@@ -19,7 +19,7 @@ function render() {
   const toggle = document.querySelector('.language-toggle'); toggle.querySelector('span').textContent = isPersian ? 'EN' : 'فارسی'; toggle.setAttribute('aria-label', isPersian ? 'Switch to English' : 'تغییر زبان به فارسی'); toggle.setAttribute('aria-pressed', String(isPersian));
   document.getElementById('quick-links').innerHTML = linkDefinitions.map(([key, icon, tint, color]) => {
     const [label, note] = copy.links[key], url = key === 'email' ? `mailto:${profile.email}` : profile[key], unavailable = !url;
-    return `<a class="quick-link${unavailable ? ' is-unavailable' : ''}" ${unavailable ? 'aria-disabled="true"' : `href="${url}" target="_blank" rel="noreferrer"`} style="--link-tint:${tint};--link-color:${color}"><span class="icon-wrap"><i data-lucide="${icon}"></i></span><span class="link-copy"><strong>${label}</strong><small>${note}</small></span><span class="arrow" aria-hidden="true">↗</span></a>`;
+    return `<a class="quick-link${unavailable ? ' is-unavailable' : ''}" ${unavailable ? 'aria-disabled="true"' : `href="${url}" target="_blank" rel="noreferrer"`} style="--link-tint:${tint};--link-color:${color}"><span class="icon-wrap"><i data-lucide="${icon}"></i></span><span class="link-copy"><strong>${label}</strong><small>${note}</small></span><span class="arrow" aria-hidden="true"><i data-lucide="arrow-up-right"></i></span></a>`;
   }).join(''); lucide.createIcons();
 }
 document.querySelector('.language-toggle').addEventListener('click', () => { language = language === 'en' ? 'fa' : 'en'; localStorage.setItem('profile-language', language); render(); });
