@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#eef3fa" />
+    <title>MohamadMahdi Esmailiyan — Test Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500&amp;family=Vazirmatn:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="flip-fix.css" />
+  </head>
+  <body>
+    <main class="scene">
+      <button class="language-toggle" type="button" aria-pressed="false"><i data-lucide="languages"></i><span>فارسی</span></button>
+      <section class="card-wrap" aria-label="Interactive profile card">
+        <div class="business-card" tabindex="0" role="button" aria-label="Flip profile card" aria-pressed="false">
+          <article class="card-face card-front">
+            <div class="front-top"><span>ME</span><i data-lucide="sparkles" aria-hidden="true"></i></div>
+            <div class="front-content">
+              <div class="test-avatar"><img src="./assets/images/home-profile.jpg" alt="MohamadMahdi Esmailiyan" /></div>
+              <h1 data-i18n="name"></h1>
+              <p class="bio" data-i18n="bio"></p>
+              <div class="profile-meta">
+                <div class="interests-card"><span class="interests-icon"><i data-lucide="brain-circuit" aria-hidden="true"></i></span><div><p class="interests-label" data-i18n="interestsLabel"></p><p class="interests-value" data-i18n="title"></p></div></div>
+                <div class="institution-card"><span class="institution-icon"><i data-lucide="landmark" aria-hidden="true"></i></span><div><p class="meta-label" data-i18n="institutionLabel"></p><p class="institution-value" data-i18n="institution"></p></div></div>
+                <div class="location-card"><span class="location-icon"><i data-lucide="map-pin" aria-hidden="true"></i></span><div><p class="meta-label" data-i18n="locationLabel"></p><p class="location-value" data-i18n="location"></p></div></div>
+              </div>
+            </div>
+            <div class="swipe-hint"><span data-i18n="swipe"></span><i data-lucide="move-horizontal" aria-hidden="true"></i></div>
+          </article>
+          <article class="card-face card-back">
+            <div class="back-top"><span>ME</span><p data-i18n="connect"></p></div>
+            <nav class="link-list" id="link-list" aria-label="Social links"></nav>
+            <button class="return-hint" type="button" tabindex="-1"><i data-lucide="rotate-ccw" aria-hidden="true"></i><span data-i18n="return"></span></button>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

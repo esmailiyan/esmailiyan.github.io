@@ -1,0 +1,295 @@
+/* Prevent both card faces from bleeding through during a 3D flip in iOS Safari. */
+.business-card {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card-face {
+  isolation: isolate;
+  opacity: 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #f6f9fe;
+  -webkit-transform: rotateY(0deg) translateZ(1px);
+  transform: rotateY(0deg) translateZ(1px);
+}
+
+.card-back {
+  background-color: #20374f;
+  -webkit-transform: rotateY(180deg) translateZ(1px);
+  transform: rotateY(180deg) translateZ(1px);
+}
+
+.test-avatar {
+  width: 80px;
+  height: 80px;
+  margin: 0 0 17px;
+  padding: 3px;
+  border: 1px solid rgba(111, 154, 197, .42);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .78);
+  box-shadow: 0 8px 16px rgba(50, 79, 109, .12);
+}
+
+.institution-card {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 9px 12px 9px 9px;
+  border: 1px solid rgba(111, 154, 197, .24);
+  border-radius: 12px;
+  background: rgba(224, 236, 248, .65);
+}
+
+.interests-card {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 9px 12px 9px 9px;
+  border: 1px solid rgba(144, 136, 180, .24);
+  border-radius: 12px;
+  background: rgba(235, 231, 248, .7);
+}
+
+.interests-card p {
+  margin: 0;
+}
+
+.interests-label {
+  color: #8178a9;
+  font: 500 9px "DM Mono", monospace;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.interests-value {
+  margin-top: 3px !important;
+  color: #625d83;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.interests-icon {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  place-items: center;
+  color: #847cac;
+  background: #e6e1f5;
+}
+
+.interests-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.institution-card p {
+  margin: 0;
+  color: #5e83a7;
+  font: 500 10px "DM Mono", monospace;
+  letter-spacing: .05em;
+}
+
+.institution-icon {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  place-items: center;
+  color: #6b96bd;
+  background: #d9e9f7;
+}
+
+.institution-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+html[dir="rtl"] .institution-card p {
+  font-family: Vazirmatn, Tahoma, sans-serif;
+  letter-spacing: 0;
+}
+
+html[dir="rtl"] .interests-card {
+  padding: 9px 9px 9px 12px;
+}
+
+html[dir="rtl"] .interests-label,
+html[dir="rtl"] .interests-value {
+  font-family: Vazirmatn, Tahoma, sans-serif;
+  letter-spacing: 0;
+}
+
+html[dir="rtl"] .institution-card {
+  padding: 9px 9px 9px 12px;
+}
+
+.location-card {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 9px 12px 9px 9px;
+  border: 1px solid rgba(115, 170, 145, .24);
+  border-radius: 12px;
+  background: rgba(225, 242, 231, .66);
+}
+
+.location-card p {
+  margin: 0;
+  color: #5b8d72;
+  font: 500 10px "DM Mono", monospace;
+  letter-spacing: .05em;
+}
+
+.location-card .location-icon {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  place-items: center;
+  color: #669d7d;
+  background: #d9efdf;
+}
+
+.location-card .location-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+html[dir="rtl"] .location-card {
+  padding: 9px 9px 9px 12px;
+}
+
+html[dir="rtl"] .location-card p {
+  font-family: Vazirmatn, Tahoma, sans-serif;
+  letter-spacing: 0;
+}
+
+.profile-meta {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.institution-card .meta-label,
+.location-card .meta-label {
+  margin: 0;
+  font: 500 9px "DM Mono", monospace;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.institution-card .meta-label { color: #6f94b8; }
+.location-card .meta-label { color: #6a9b7c; }
+
+.institution-card .institution-value,
+.location-card .location-value {
+  margin-top: 3px;
+  font: 500 10px "DM Mono", monospace;
+  letter-spacing: .05em;
+}
+
+.institution-card .institution-value { color: #5e83a7; }
+.location-card .location-value { color: #5b8d72; }
+
+html[dir="rtl"] .institution-card .meta-label,
+html[dir="rtl"] .location-card .meta-label,
+html[dir="rtl"] .institution-card .institution-value,
+html[dir="rtl"] .location-card .location-value {
+  font-family: Vazirmatn, Tahoma, sans-serif;
+  letter-spacing: 0;
+}
+
+html[dir="rtl"] .link-list .link-copy {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
+html[dir="rtl"] .link-list .link-copy strong,
+html[dir="rtl"] .link-list .link-copy small {
+  white-space: nowrap;
+}
+
+.test-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* A shorter, denser composition keeps every card detail visible on phones. */
+@media (max-width: 520px) {
+  .card-wrap {
+    aspect-ratio: auto;
+    height: min(720px, calc(100svh - 64px));
+    max-height: none;
+  }
+
+  .card-front,
+  .card-back {
+    padding: 21px;
+  }
+
+  .test-avatar {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 12px;
+  }
+
+  .front-content h1 {
+    font-size: clamp(35px, 10.5vw, 43px);
+  }
+
+  .bio {
+    margin-top: 13px;
+    font-size: 11.5px;
+    line-height: 1.65;
+  }
+
+  .profile-meta {
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .interests-card,
+  .institution-card,
+  .location-card {
+    padding: 7px 10px 7px 7px;
+    border-radius: 11px;
+  }
+
+  .interests-icon,
+  .institution-icon,
+  .location-card .location-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .interests-label,
+  .institution-card .meta-label,
+  .location-card .meta-label {
+    font-size: 8px;
+  }
+
+  .interests-value,
+  .institution-card .institution-value,
+  .location-card .location-value {
+    font-size: 9px;
+  }
+}
