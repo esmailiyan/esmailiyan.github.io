@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#eef3fa" />
+    <title>MohamadMahdi Esmailiyan — Test Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500&amp;family=Vazirmatn:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="scene">
+      <button class="language-toggle" type="button" aria-pressed="false"><i data-lucide="languages"></i><span>فارسی</span></button>
+      <section class="card-wrap" aria-label="Interactive profile card">
+        <div class="business-card" tabindex="0" role="button" aria-label="Flip profile card" aria-pressed="false">
+          <article class="card-face card-front">
+            <div class="front-top"><span>MM.</span><i data-lucide="sparkles" aria-hidden="true"></i></div>
+            <div class="front-content">
+              <p class="eyebrow" data-i18n="institution"></p>
+              <h1 data-i18n="name"></h1>
+              <p class="title" data-i18n="title"></p>
+              <p class="bio" data-i18n="bio"></p>
+              <p class="location"><i data-lucide="map-pin" aria-hidden="true"></i><span data-i18n="location"></span></p>
+            </div>
+            <div class="swipe-hint"><span data-i18n="swipe"></span><i data-lucide="move-horizontal" aria-hidden="true"></i></div>
+          </article>
+          <article class="card-face card-back">
+            <div class="back-top"><span>MM.</span><p data-i18n="connect"></p></div>
+            <nav class="link-list" id="link-list" aria-label="Social links"></nav>
+            <button class="return-hint" type="button" tabindex="-1"><i data-lucide="rotate-ccw" aria-hidden="true"></i><span data-i18n="return"></span></button>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
